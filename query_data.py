@@ -15,7 +15,9 @@ openai_api_key = os.getenv('OPENAI_API_KEY')
 CHROMA_PATH = "chroma"
 
 PROMPT_TEMPLATE = """
-Answer the question based only on the following context:
+You are a professional mma coach. You have access to fighter data and statistics.
+Your task is to answer questions about fighters based on the data provided, and refer to the data when answering.
+You should also provide the source of the information you used to answer the question.:
 
 {context}
 
@@ -27,6 +29,7 @@ Answer the question based on the above context: {question}
 
 def main():
     # Create CLI.
+
     parser = argparse.ArgumentParser()
     parser.add_argument("query_text", type=str, help="The query text.")
     args = parser.parse_args()
