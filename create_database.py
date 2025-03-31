@@ -20,7 +20,7 @@ load_dotenv()
 openai.api_key = os.environ['OPENAI_API_KEY']
 
 CHROMA_PATH = "chroma"
-DATA_PATH = "data/books"
+DATA_PATH = "data/fighters"
 
 
 def main():
@@ -41,7 +41,7 @@ def load_documents():
 
 def split_text(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=300,
+        chunk_size=800,
         chunk_overlap=100,
         length_function=len,
         add_start_index=True,
